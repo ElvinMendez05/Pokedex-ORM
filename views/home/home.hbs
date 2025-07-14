@@ -1,0 +1,29 @@
+<div class="container my-4">
+  <form action="/?filtrar=true" method="GET">
+    <div class="row g-3 align-items-end">
+      <!-- Buscador por nombre -->
+      <div class="col-md-6">
+        <label for="buscarSerie" class="form-label fw-semibold">Buscar por nombre</label>
+        <input type="text" id="buscarSerie" name="nombre" class="form-control" placeholder="Ej: Breaking Bad">
+      </div>
+
+      <!-- Filtro por género -->
+      <div class="col-md-4">
+        <label for="filtroGenero" class="form-label fw-semibold">Filtrar por género</label>
+        <select id="filtroGenero" name="genero" class="form-select">
+          <option value="">-- Selecciona un género --</option>
+          {{#each generos}}
+            <option value="{{this.nombre}}">{{this.nombre}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <!-- Botón buscar -->
+      <div class="col-md-2 d-grid">
+        <button class="btn btn-success fw-semibold" type="submit">
+          <i class="bi bi-search"></i> Buscar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
