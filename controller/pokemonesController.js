@@ -60,16 +60,3 @@ export function Delete (req, res, next) {
     res.redirect("/pokemones/index")
 };
 
-// export function GetDetalle(req, res, next) {
-//   const id = req.params.id;
-
-//   SeriesModel.GetById(id, (serie) => {
-//     res.render("series/detalle", {
-//       "page-title": `Detalle - ${serie.nombre}`,
-//       serie
-//     });
-//   });
-// }
-
-
-

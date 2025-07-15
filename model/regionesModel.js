@@ -4,7 +4,7 @@ import { saveDataInFile, GetAllDataFromFile } from '../utils/fileHandrler.js';
 
 const dataPath = path.join(projectRoot, "data", "regiones.json");
 
-class Pokemones {
+class Regiones {
     constructor(id, nombre, regionesId) {
         this.id = id;
         this.nombre = nombre;
@@ -53,4 +53,4 @@ class Pokemones {
     }
 }
 
-export default Pokemones;
+export default Regiones;
