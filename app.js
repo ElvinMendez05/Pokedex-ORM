@@ -22,8 +22,13 @@ app.engine('hbs', engine({
       }, eq: function(a, b) {
         return Number(a) === Number(b);
       },
+      
+      includes: function (array, value) {
+    return Array.isArray(array) && array.includes(value);
+  }
    }
 }));
+
 
 app.set('view engine', 'hbs');
 app.set('views', 'views');

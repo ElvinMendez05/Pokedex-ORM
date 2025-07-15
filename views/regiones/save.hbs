@@ -3,33 +3,33 @@
     <div class="card-body p-4">
       <h2 class="fw-bold mb-4 text-primary">
         <i class="bi bi-pencil-square me-2"></i>
-        {{#if editMode}}Editar Tipo: {{tiposList.nombre}}{{else}}Crear nuevo Tipo{{/if}}
+        {{#if editMode}}Editar Región: {{regionList.nombre}}{{else}}Crear nueva Región{{/if}}
       </h2>
 
-      <form action="/tipos/{{#if editMode}}edit/{{tiposList.id}}{{else}}create{{/if}}" method="POST">
-        <!-- Nombre del Tipo -->
+      <form action="/regiones/{{#if editMode}}edit/{{regionList.id}}{{else}}create{{/if}}" method="POST">
+        <!-- Nombre -->
         <div class="mb-3">
           <label for="nombre" class="form-label fw-semibold">
-            <i class="bi bi-lightning-fill me-1 text-warning"></i>Nombre del Tipo
+            <i class="bi bi-globe-americas me-1"></i>Nombre de la Región
           </label>
           <input
             type="text"
             class="form-control shadow-sm"
             id="nombre"
             name="nombre"
-            placeholder="Ej: Agua, Fuego, Planta"
+            placeholder="Ej: Kanto"
             required
-            value="{{#if editMode}}{{tiposList.nombre}}{{/if}}"
+            value="{{#if editMode}}{{regionList.nombre}}{{/if}}"
           >
         </div>
 
         {{#if editMode}}
-          <input type="hidden" name="tiposId" value="{{tiposList.id}}">
+          <input type="hidden" name="regionesId" value="{{regionList.id}}">
         {{/if}}
 
         <!-- Botones -->
         <div class="d-flex justify-content-between">
-          <a href="/tipos/index" class="btn btn-outline-secondary">
+          <a href="/regiones/index" class="btn btn-outline-secondary">
             <i class="bi bi-arrow-left"></i> Volver
           </a>
           <button type="submit" class="btn btn-primary">
