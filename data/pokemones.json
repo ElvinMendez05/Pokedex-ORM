@@ -1,9 +1,44 @@
 [
   {
-    "id": 3828.4682913971023,
+    "id": 2291.7219400002064,
     "nombre": "Pikachu",
-    "portada": "https://i.pinimg.com/736x/3f/72/2e/3f722e7be5a952584063a35048820e89.jpg",
-    "imagen": "Kanto",
-    "region": "Eléctrico"
+    "imagen": "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/025.png",
+    "region": "Kanto",
+    "tipoPrimario": "Eléctrico"
+  },
+  {
+    "id": 22.908096012637102,
+    "nombre": "balbasaur",
+    "imagen": "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png",
+    "region": "Sinnoh",
+    "tipoPrimario": "Planta"
+  },
+  {
+    "id": 3652.055858984997,
+    "nombre": "Charizard",
+    "imagen": "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/006.png",
+    "region": "Johto",
+    "tipoPrimario": "Fuego"
+  },
+  {
+    "id": 4375.531546237065,
+    "nombre": "Squirtle ",
+    "imagen": "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/007.png",
+    "region": "Sinnoh",
+    "tipoPrimario": "Agua"
+  },
+  {
+    "id": 6064.765854364251,
+    "nombre": "Charmeleon ",
+    "imagen": "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/005.png",
+    "region": "Johto",
+    "tipoPrimario": "Fuego"
+  },
+  {
+    "id": 4186.393970890871,
+    "nombre": "Machamp",
+    "imagen": "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/068.png",
+    "region": "Sinnoh",
+    "tipoPrimario": "Eléctrico"
   }
 ]

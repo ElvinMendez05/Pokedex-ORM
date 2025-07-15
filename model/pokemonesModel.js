@@ -5,10 +5,9 @@ import { saveDataInFile, GetAllDataFromFile } from '../utils/fileHandrler.js';
 const dataPath = path.join(projectRoot, "data", "pokemones.json");
 
 class Pokemones {
-    constructor(id, nombre, portada, imagen, region, tipoPrimario) {
+    constructor(id, nombre, imagen, region, tipoPrimario) {
         this.id = id;
         this.nombre = nombre;
-        this.portada = portada;
         this.imagen = imagen;
         this.region = region;
         this.tipoPrimario = tipoPrimario;

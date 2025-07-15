@@ -6,7 +6,8 @@
         {{#if editMode}}Editar Pokémon: {{pokemonList.nombre}}{{else}}Crear nuevo Pokémon{{/if}}
       </h2>
 
-      <form action="/pokemones/{{#if editMode}}edit{{else}}create{{/if}}" method="POST">
+      {{!-- <form action="/pokemones/{{#if editMode}}edit{{else}}create{{/if}}" method="POST"> --}}
+      <form action="/pokemones/{{#if editMode}}edit/{{pokemonList.id}}{{else}}create{{/if}}" method="POST">
         <!-- Nombre -->
         <div class="mb-3">
           <label for="nombre" class="form-label fw-semibold">
@@ -68,7 +69,7 @@
         </div>
 
         {{#if editMode}}
-          <input type="hidden" name="seriesId" value="{{pokemonList.id}}" />
+          <input type="hidden" name="pokemonesId" value="{{pokemonList.id}}" />
         {{/if}}
 
         <!-- Botones -->

@@ -27,7 +27,7 @@ export function PostCreate (req, res, next) {
 };
 
 export function GetEdit (req, res, next) {
-    const id = req.params.seriesId;
+    const id = req.params.pokemonesId;
     PokemonModel.GetById(id, (pokemonList) => {
         if (!pokemonList) {
             return res.redirect("pokemones/index");
