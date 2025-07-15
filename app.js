@@ -4,7 +4,8 @@ import { projectRoot } from './utils/paths.js';
 import path from 'path';
 import homeRoutes from './router/home.js';
 import pokemonRoutes from './router/pokemonesRoute.js';
-// import seriesRoutes from './routes/seriesRoute.js';
+import regionRoutes from './router/regionesRoutes.js';
+import tiposRoutes from './router/tiposRoutes.js';
 
 const app = express();
 
@@ -33,7 +34,9 @@ app.use(express.static(path.join(projectRoot, 'public')));
 //routes 
 app.use(homeRoutes);
 app.use('/pokemones', pokemonRoutes);
-// app.use('/series', seriesRoutes);
+app.use('/regiones', regionRoutes);
+app.use('/tipos', tiposRoutes);
+
 
 app.use((req, res) => {
     res.status(404).render('404', {title: "Page not found"});
