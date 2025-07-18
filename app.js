@@ -1,3 +1,4 @@
+import './utils/LoadEnvConfig.js';
 import express from 'express';
 import {engine} from 'express-handlebars';
 import { projectRoot } from './utils/paths.js';
@@ -7,28 +8,23 @@ import pokemonRoutes from './router/pokemonesRoute.js';
 import regionRoutes from './router/regionesRoutes.js';
 import tiposRoutes from './router/tiposRoutes.js';
 import context from './context/appContext.js'
-
+import {GetSection} from './utils/helpers/section.js'
+import {Equals} from './utils/helpers/compare.js';
 
 const app = express();
 
 //render engine
 app.engine('hbs', engine({
-   layoutsDir: "views/layouts",
-   defaultLayout: "main",
-   extname: "hbs",
-   helpers: {
-       section: function(name, options) {
-        if (!this._sections) this._sections = {};
-        this._sections[name] = options.fn(this);
-        return null;
-      }, eq: function(a, b) {
-        return Number(a) === Number(b);
-      },
-      
-      includes: function (array, value) {
-    return Array.isArray(array) && array.includes(value);
+  layoutsDir: "views/layouts",
+  defaultLayout: "main",
+  extname: "hbs",
+  helpers: {
+    section: GetSection,
+    eq: Equals,
+    includes: function (array, value) {
+      return Array.isArray(array) && array.includes(value);
+    }
   }
-   }
 }));
 
 
@@ -52,8 +48,7 @@ app.use((req, res) => {
 context.sequelize
     .sync({alter: true})
     .then(()=> {
-      app.listen(3000);
-
+      app.listen(process.env.PORT || 5000);
       console.log("Database corrected succefully");
     }) 
     .catch((err) => {

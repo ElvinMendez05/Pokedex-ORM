@@ -1,12 +1,12 @@
 <div class="container my-5">
   <!-- Encabezado -->
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2 class="fw-bold text-primary">
+    <h2 class="fw-bold text-success">
       <i class="bi bi-lightning-fill me-2"></i>Listado de Tipos de Pokémon
     </h2>
 
     <!-- Botón Crear -->
-    <a href="/tipos/create" class="btn btn-primary shadow-sm">
+    <a href="/tipos/create" class="btn btn-success shadow-sm">
       <i class="bi bi-plus-circle me-1"></i> Crear nuevo tipo
     </a>
   </div>
@@ -14,7 +14,7 @@
   {{#if hasTipos}}
     <div class="table-responsive shadow-sm rounded">
       <table class="table table-hover align-middle bg-white rounded border">
-        <thead class="table-primary text-center">
+        <thead class="table-success text-center">
           <tr>
             <th scope="col" class="text-start">Nombre del Tipo</th>
             <th scope="col" class="text-end">Acciones</th>
@@ -25,7 +25,7 @@
             <tr>
               <td class="text-start fw-semibold">{{this.nombre}}</td>
               <td class="text-end">
-                <a href="/tipos/edit/{{this.id}}" class="btn btn-sm btn-outline-primary me-2 shadow-sm">
+                <a href="/tipos/edit/{{this.id}}" class="btn btn-sm btn-outline-success me-2 shadow-sm">
                   <i class="bi bi-pencil-square me-1"></i>Editar
                 </a>
                 <form action="/tipos/delete" method="POST" class="d-inline">
