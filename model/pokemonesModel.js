@@ -1,57 +1,36 @@
-import path from "path";
-import { projectRoot } from '../utils/paths.js';
-import { saveDataInFile, GetAllDataFromFile } from '../utils/fileHandrler.js';
+import connection from "../utils/DbConnection.js";
+import { DataTypes } from "sequelize";
 
-const dataPath = path.join(projectRoot, "data", "pokemones.json");
 
-class Pokemones {
-    constructor(id, nombre, imagen, region, tipoPrimario) {
-        this.id = id;
-        this.nombre = nombre;
-        this.imagen = imagen;
-        this.region = region;
-        this.tipoPrimario = tipoPrimario;
-    }
+const Pokemones = connection.define(
+    "Pokemones",
+    { 
+        id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+        allowNull: false,
+    }, 
+        nombre: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+        imagen: {
+         type: DataTypes.STRING,
+         allowNull: false
+    },
+        region: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+        tipoPrimario: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+     
+    }, 
+    {
+        tableName: "pokemones", 
+});
 
-    Save() {
-        GetAllDataFromFile(dataPath, (pokemonList) => {
-            if (this.id !== 0) {
-                const editPokemonIndex = pokemonList.findIndex(
-                (pokemonList) => pokemonList.id === Number(this.id)
-                );
-                pokemonList[editPokemonIndex] = this;
-                saveDataInFile(dataPath, pokemonList);
-            } else {
-                this.id = Math.random() * 10000;
-                pokemonList.push(this);
-                saveDataInFile(dataPath, pokemonList);
-            }
-        });
-    }
-
-    static GetAll(callback) {
-        GetAllDataFromFile(dataPath, callback);
-    }
-
-    static GetById(id, callback) {
-    GetAllDataFromFile(dataPath, (pokemonList) => {
-      const pokemon = pokemonList.find(
-        (pokemon) => pokemon.id === Number(id)
-      );
-      if (pokemon) {
-        callback(pokemon);
-      } else {
-        callback(null);
-       }
-     });
-    }
-
-    static Delete(id) {
-        GetAllDataFromFile(dataPath, (pokemonList) => {
-            const newPokemonList = pokemonList.filter((pokemones) => pokemones.id !== Number(id) );
-            saveDataInFile(dataPath, newPokemonList);
-        })
-    }
-}
-
-export default Pokemones;
+export default  Pokemones;

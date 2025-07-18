@@ -6,6 +6,8 @@ import homeRoutes from './router/home.js';
 import pokemonRoutes from './router/pokemonesRoute.js';
 import regionRoutes from './router/regionesRoutes.js';
 import tiposRoutes from './router/tiposRoutes.js';
+import context from './context/appContext.js'
+
 
 const app = express();
 
@@ -47,4 +49,13 @@ app.use((req, res) => {
     res.status(404).render('404', {title: "Page not found"});
 });
 
-app.listen(3000);
+context.sequelize
+    .sync({alter: true})
+    .then(()=> {
+      app.listen(3000);
+
+      console.log("Database corrected succefully");
+    }) 
+    .catch((err) => {
+      console.error("Erro connecting to the database: ", err)
+    })
